@@ -1,0 +1,43 @@
+version: "3.5"
+
+services:
+  yolo-app:
+    build:
+      context: /yolo2/client 
+      dockerfile: Dockerfile
+    container_name: react_app
+    command: "npm start"
+    ports:
+      - "3001:3001"
+    volumes:
+      - "/yolo2/client:/var/app/client" #Look into this later
+    networks:
+      - yolo_net 
+    
+  backend:
+    build:
+      context: /yolo2/backend
+      dockerfile: Dockerfile
+    container_name: backend
+    command: "npm start"
+    ports:
+      - "5000:5000"
+    volumes:
+      - "/yolo2/backend:/var/app/backend"
+    networks:
+     - "yolo_net"
+  
+  yolo.db:
+    image: mongo:latest
+    container_name: yolo_db
+    environment:
+     MONGO_INITDB_ROOT_USERNAME: admin
+     MONGO_INITDB_ROOT_PASSWORD: password 
+     MONGO_INITDB_DATABASE: local 
+    ports:
+      - "0.0.0.0:27017:27017"
+    networks:
+      - yolo_net
+
+      
+
