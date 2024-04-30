@@ -1,7 +1,7 @@
 version: "3.5"
 
 services:
-  yolo-app:
+  client:
     build:
       context: /yolo2/client 
       dockerfile: Dockerfile
@@ -10,7 +10,7 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - "/yolo2/client:/var/app/client" #Look into this later
+      - "/yolo2/client:/var/www/client"
     networks:
       - yolo_net 
     
@@ -23,7 +23,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - "/yolo2/backend:/var/app/backend"
+      - "/yolo2/backend:/var/www/backend"
     networks:
      - "yolo_net"
   
@@ -39,5 +39,8 @@ services:
     networks:
       - yolo_net
 
+networks:
+  yolo_net:
+    driver: bridge
       
 
