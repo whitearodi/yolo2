@@ -18,7 +18,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: backend
+    container_name: server_backend
     command: "npm start"
     ports:
       - "5000:5000"
@@ -35,7 +35,7 @@ services:
      MONGO_INITDB_ROOT_PASSWORD: password 
      MONGO_INITDB_DATABASE: local 
     ports:
-      - "0.0.0.0:27017:27017"
+      - "0.0.0.0:27018:27017"
     networks:
       - yolo_net
 
