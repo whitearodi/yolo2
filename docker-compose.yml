@@ -3,7 +3,7 @@ version: "3.5"
 services:
   client:
     build:
-      context: /yolo2/client 
+      context: ./client 
       dockerfile: Dockerfile
     container_name: react_app
     command: "npm start"
@@ -16,7 +16,7 @@ services:
     
   backend:
     build:
-      context: /yolo2/backend
+      context: ./backend
       dockerfile: Dockerfile
     container_name: backend
     command: "npm start"
