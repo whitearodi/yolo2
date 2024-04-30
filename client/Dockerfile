@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 #Expose port which container will run 
-EXPOSE 3000
+EXPOSE 3001
 
 #Build the React App
-CMD [ "npm", "start" ]
+CMD ["npm", "start", "--", "--host", "0.0.0.0", "--port", "3001"]
