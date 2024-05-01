@@ -1,5 +1,6 @@
+# Stage 1: Build the apllication(using multi stage builds)
 #import base image 
-FROM node:14-alpine
+FROM node:14-alpine AS build 
 
 #Setting working directory in the container 
 WORKDIR /client/app
@@ -12,6 +13,18 @@ RUN npm install
 
 #Copy the rest of the application code from root to workdir 
 COPY . .
+
+#Run build
+RUN npm run build
+
+#Stage 2:Serve the application
+FROM node:14-alpine as main 
+
+#working directory for the reduced image 
+WORKDIR /client/app
+
+#Copies files to specified path
+COPY --from=build /client/app/build ./build
 
 #Expose port which container will run 
 EXPOSE 3001
