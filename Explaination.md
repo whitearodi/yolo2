@@ -29,9 +29,9 @@ CMD: Specifies the default command to run when the container starts. This comman
 
 ## Bridge network implementation
   - Within the docker-compose file The networks section defines a custom bridge network named yolo_net:
-     networks:
+    networks:
         yolo_net:
-          driver:bridge 
+          driver:bridge
   
   - Bridge networking creates a private internal network that allows containers within the same network to communicate with each other.So the client & backend service are connected to this network 
 
@@ -54,6 +54,12 @@ CMD: Specifies the default command to run when the container starts. This comman
 
 
 # 6.Successfull running of application & if not debugging applied 
+## Debbuging applied
+- When running `sudo docker-compose ps` to check the services that are running I found my Client service wasn't running 
+-Tried checking the the React Application logs to troubleshoot this issue but came across this error:
+ `ERROR: No such service: react_app` & yet it exists.The container has been created but unfortunately it's unable to run
+ - `sudo docker-compose logs client`-used this command to check the logs of the client service
+
 
 # 7.Inclusion of Docker image tag naming standards for ease of identification of images and containers 
 ## Image tagging
