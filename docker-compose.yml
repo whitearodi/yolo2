@@ -10,9 +10,10 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - "/yolo2/client:/var/www/client"
+      - "./client:/var/www/client"
     networks:
       - yolo_net 
+    image: arodi21/client_side:v1.1.1 #Tag the client image 
     
   backend:
     build:
@@ -23,9 +24,10 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - "/yolo2/backend:/var/www/backend"
+      - "./backend:/var/www/backend"
     networks:
      - "yolo_net"
+    image: arodi21/server_backend:v1.1.1 #Tag the backend image 
   
   yolo.db:
     image: mongo:latest
