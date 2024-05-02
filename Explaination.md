@@ -58,7 +58,7 @@ CMD: Specifies the default command to run when the container starts. This comman
 - When running `sudo docker-compose ps` to check the services that are running I found my Client service wasn't running 
 -Tried checking the the React Application logs to troubleshoot this issue but came across this error:
  `ERROR: No such service: react_app` & yet it exists.The container has been created but unfortunately it's unable to run
- - `sudo docker-compose logs client`-used this command to check the logs of the client service
+ - `sudo docker-compose logs client`-used this command to check the logs of the client service.The error message indicates that npm is unable to find the package.json file in the /client/app directory within your container. 
 
 
 # 7.Inclusion of Docker image tag naming standards for ease of identification of images and containers 
