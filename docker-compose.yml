@@ -23,6 +23,11 @@ services:
     command: "npm start"
     ports:
       - "5000:5000"
+    depends_on:
+    - yolo.db
+    environment:
+    - MONGODB_URL=mongodb://yolo_db:27018
+    - DB_NAME=yolo_db
     volumes:
       - "./backend:/var/www/backend"
     networks:
