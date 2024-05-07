@@ -20,8 +20,8 @@ RUN npm run build
 #Stage 2:Serve the application
 FROM node:14-alpine as main 
 
-#working directory for the reduced image 
-WORKDIR /client/app
+#Create a working directory 
+WORKDIR /app
 
 #Copies files to specified path
 COPY --from=build /client/app/build ./build
