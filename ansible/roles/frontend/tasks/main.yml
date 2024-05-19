@@ -1,0 +1,20 @@
+--- 
+#Frontend Role 
+- name: Clone Repository 
+  git: 
+    repo: 'https://github.com/whitearodi/yolo2.git'
+    dest: /var/www/client
+
+- name: Build & start client container 
+  docker_container:
+     name: react_app
+     image: "{{client_image}}"
+     state: started
+     restart_policy: always 
+     ports: 
+       - "3001:3001"
+     volumes: 
+        - /var/www/client:/var/www/client
+     networks: 
+        - name: yolo_net 
+
