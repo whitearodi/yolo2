@@ -1,0 +1,17 @@
+---
+
+# Database Role
+- name: Start MongoDB container
+  docker_container:
+    name: yolo_db
+    image: "{{ mongo_image }}"
+    state: started
+    restart_policy: always
+    ports:
+      - "0.0.0.0:27018:27017"
+    networks:
+      - name: yolo_net
+    env:
+      MONGO_INITDB_ROOT_USERNAME: "{{ mongo_root_username }}"
+      MONGO_INITDB_ROOT_PASSWORD: "{{ mongo_root_password }}"
+      MONGO_INITDB_DATABASE: "{{ mongo_database }}"
