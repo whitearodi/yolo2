@@ -1,0 +1,32 @@
+---
+# This is the main playbook for deploying the application 
+#Define the hosts this playbook applies to
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: Install Docker 
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes 
+    
+    - name: Install Docker Compose 
+      apt: 
+        name: docker-compose 
+        state: present 
+        update_cache: yes 
+        
+    - name: Create yolo_net network
+      docker_network: 
+        name: yolo_net
+        driver: bridge
+
+#Load variable files 
+  vars_files:
+    - vars/main.yml
+
+#Define roles to be applied 
+  roles:
+    - frontend 
+    - backend
+    - database 
