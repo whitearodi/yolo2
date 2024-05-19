@@ -1,0 +1,10 @@
+
+#vars/main.yaml 
+
+docker_compose_version: "3.5"
+client_image: "arodi21/client_side:v1.1.1"
+backend_image: "arodi21/server_backend:v1.1.1"
+mongo_image: "mongo:latest"
+mongo_root_username:  "admin"
+mongo_root_password: "password"
+mongo_database: "local"
