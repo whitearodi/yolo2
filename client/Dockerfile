@@ -30,4 +30,4 @@ COPY --from=build /client/app/build ./build
 EXPOSE 3001
 
 #Build the React App
-CMD ["npm", "start", "--", "--host", "0.0.0.0", "--port", "3001"]
+CMD ["npm", "start"]
