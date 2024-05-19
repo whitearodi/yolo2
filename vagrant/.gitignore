@@ -1,0 +1,10 @@
+# Ignore Vagrant state files
+.vagrant/
+
+# Ignore SSH key files (if any)
+*.private
+*.pem
+
+# Ignore other sensitive or machine-specific files
+credentials.yml
+*.log
