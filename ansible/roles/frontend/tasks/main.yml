@@ -4,6 +4,8 @@
   git: 
     repo: 'https://github.com/whitearodi/yolo2.git'
     dest: /var/www/client
+  notify:
+    - Restart client container
 
 - name: Build & start client container 
   docker_container:
@@ -15,6 +17,7 @@
        - "3001:3001"
      volumes: 
         - /var/www/client:/var/www/client
+     networks_cli_compatible: yes
      networks: 
         - name: yolo_net 
 

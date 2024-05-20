@@ -1,0 +1,7 @@
+---
+#Creating handlers to manage service restarts 
+
+- name: Restart client container 
+  docker_container:
+   name: react_app
+   state: restarted 
