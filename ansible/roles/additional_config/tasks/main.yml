@@ -16,12 +16,37 @@
   notify: 
     - Restart HAProxy
 
-  
+# Configure firewall
+- name: Ensure UFW is installed
+  apt:
+    name: ufw
+    state: present
+
+- name: Allow HTTP and HTTPS traffic
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+  with_items:
+    - '3001'
+    - '5000'
 
 #- name: Configure monitoring tools
   # Task details for configuring monitoring tools
   
 
-#- name: Apply advanced security settings
+#Apply advanced security settings
   # Task details for advanced security settings
+- name: Ensure fail2ban is installed 
+  apt:
+    name: fail2ban
+    state: present 
+
+#Configure fail2ban
+- name: Configure fail2ban
+  template:
+    src: fail2ban.local.j2
+    dest: /etc/fail2ban/jail.local
+  notify:
+    - Restart Fail2Ban
+
   

@@ -5,3 +5,9 @@
   service:
     name: haproxy
     state: restarted
+
+# Handler for fail2ban
+- name: Restart Fail2Ban
+  service:
+    name: fail2ban
+    state: restarted
