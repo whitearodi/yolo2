@@ -1,0 +1,14 @@
+---
+#Stage 2 implementation 
+- hosts: all 
+  become: true 
+  vars_files: 
+    - ../vars/main.yml
+    - ../vars/stage_two.yml
+  
+  roles: 
+    - ../roles/frontend 
+    - ../roles/backend 
+    - ../roles/database
+    - ../roles/additional_config 
+    
