@@ -9,6 +9,7 @@
     restart_policy: always
     ports:
       - "0.0.0.0:27018:27017"
+    networks_cli_compatible: yes
     networks:
       - name: yolo_net
     env:
