@@ -5,6 +5,8 @@
   git:
     repo: "https://github.com/whitearodi/yolo2.git"
     dest: "/var/www/backend"
+  notify:
+    - Restart backend container
 
 #Configuring the containers 
 - name: Build & start backend container 
@@ -17,6 +19,7 @@
        - "5000:5000"
      volumes: 
        - /var/www/backend:/var/www/backend
+     networks_cli_compatible: yes
      networks:
         - name: yolo_net
      env:
