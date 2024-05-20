@@ -1,0 +1,27 @@
+---
+
+# additional_configs
+#Setting up load balancer 
+- name: Install HAProxy
+  # Task details for setting up load balancer
+  apt:
+    name: haproxy
+    state: present 
+
+#Configure HAproxy
+- name: Configure HAProxy 
+  template:
+    src: haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg 
+  notify: 
+    - Restart HAProxy
+
+  
+
+#- name: Configure monitoring tools
+  # Task details for configuring monitoring tools
+  
+
+#- name: Apply advanced security settings
+  # Task details for advanced security settings
+  
