@@ -21,13 +21,13 @@ RUN npm run build
 FROM node:14-alpine as main 
 
 #Create a working directory 
-WORKDIR /app
+WORKDIR /client/app
 
 #Copies files to specified path
-COPY --from=build /client/app/build ./build
+COPY --from=build /client/app/. .
 
 #Expose port which container will run 
-EXPOSE 3001
+EXPOSE 3000
 
 #Build the React App
 CMD ["npm", "start"]
