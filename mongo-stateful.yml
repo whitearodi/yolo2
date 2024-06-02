@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: yolo-db
+spec:
+  selector:
+    matchLabels:
+      app: yolo-db
+  serviceName: yolo-db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yolo-db 
+    spec:
+      containers:
+      - name: yolo-db
+        image: mongo:latest
+        ports:
+        - containerPort: 27018
+          #name: web
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: admin
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: password
+        - name: MONGO_INITDB_DATABASE
+          value: local
+        volumeMounts:
+        - name: db-storage 
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: db-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
