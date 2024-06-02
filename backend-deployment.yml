@@ -1,28 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server-deployment 
-  namespace: yolo-namespace 
+  name: server-deployment
+  namespace: yolo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: server-backend 
+      app: server-backend
   template:
     metadata:
       labels:
-        app: server-backend 
+        app: server-backend
     spec:
       containers:
-      - name: server-backend 
-        image: arodi21/server_backend:v1.1.1
-        resources:
-          limits:
-            memory: 128Mi
-            cpu: 500m
-        ports:
-        - containerPort: 5000
-        env:
-        - name: MONGODB_URI
-          value: mongodb://yolo-db-service:27018/
-        
+        - name: server-backend
+          image: arodi21/server_backend:v1.1.1
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 500m
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGODB_URI
+              value: mongodb://yolo-db-service:27018/

@@ -3,7 +3,7 @@ kind: Deployment
 
 metadata:
   name: yolo-client
-  namespace: yolo-namespace 
+  namespace: yolo
   labels:
     app: yolo-client
 spec:
@@ -34,7 +34,7 @@ spec:
               memory: 100Mi
           livenessProbe:
             tcpSocket:
-              port: 3001
+              port: 3000
             initialDelaySeconds: 5
             timeoutSeconds: 5
             successThreshold: 1
@@ -43,14 +43,14 @@ spec:
           readinessProbe:
             httpGet:
               path: /
-              port: 3001
+              port: 3000
             initialDelaySeconds: 5
             timeoutSeconds: 2
             successThreshold: 1
             failureThreshold: 3
             periodSeconds: 10
           ports:
-            - containerPort: 3001
+            - containerPort: 3000
               name: yolo-client
 
           env:
@@ -58,5 +58,3 @@ spec:
               value: http://server-backend-service:80
 
       restartPolicy: Always
-
-
