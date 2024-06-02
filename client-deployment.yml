@@ -50,11 +50,13 @@ spec:
             failureThreshold: 3
             periodSeconds: 10
           ports:
-            - containerPort: 3000
+            - containerPort: 3001 # Ensure this matches your app's running port
               name: yolo-client
 
           env:
             - name: REACT_APP_API_URL
               value: http://server-backend-service:80
+            - name: HOST # Add HOST environment variable to allow access from outside
+              value: "0.0.0.0"
 
       restartPolicy: Always
