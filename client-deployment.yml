@@ -50,7 +50,7 @@ spec:
             failureThreshold: 3
             periodSeconds: 10
           ports:
-            - containerPort: 3001 # Ensure this matches your app's running port
+            - containerPort: 3000 # Ensure this matches your app's running port
               name: yolo-client
 
           env:
