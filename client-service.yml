@@ -6,7 +6,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: react_app
+    app: yolo-client
   ports:
     - port: 80
       targetPort: 3000
