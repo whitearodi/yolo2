@@ -8,12 +8,12 @@ services:
     container_name: react_app
     command: "npm start"
     ports:
-      - "3001:3001"
+      - "3000:3000"
     volumes:
       - "./client:/var/www/client"
     networks:
       - yolo_net 
-    image: arodi21/client_side:v1.1.1 #Tag the client image 
+    image: arodi21/client_side:v1.1.3 #Tag the client image 
     
   backend:
     build:
