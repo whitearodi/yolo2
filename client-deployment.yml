@@ -56,7 +56,7 @@ spec:
           env:
             - name: REACT_APP_API_URL
               value: http://server-backend-service:80
-            - name: HOST # Add HOST environment variable to allow access from outside
-              value: "0.0.0.0"
+            #- name: HOST # Add HOST environment variable to allow access from outside
+             # value: "0.0.0.0"
 
       restartPolicy: Always
