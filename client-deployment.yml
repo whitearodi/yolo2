@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-app
+  name: yolo-client
   labels:
-    app: react-app
+    app: yolo-client
 spec:
   selector:
     matchLabels:
-      app: react-app
+      app: yolo-client
   replicas: 1
   strategy:
     rollingUpdate:
@@ -17,11 +17,11 @@ spec:
   template:
     metadata:
       labels:
-        app: react-app
+        app: yolo-client
     spec:
       automountServiceAccountToken: false
       containers:
-        - name: react-app
+        - name: yolo-client
           image: arodi21/client_side:v1.1.3
           resources:
             requests:
@@ -49,7 +49,7 @@ spec:
             periodSeconds: 10
           ports:
             - containerPort: 3001
-              name: react-app
+              name: yolo-client
 
           env:
             - name: REACT_APP_API_URL
