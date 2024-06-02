@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: yolo-client
+  namespace: yolo-namespace 
   labels:
     app: yolo-client
 spec:
