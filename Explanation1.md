@@ -50,10 +50,11 @@ These are the manifest files your gonna create within ur project:
 - `kubectl get pods -n your-namespace`
 - `kubectl get services -n your-namespace`
 2. Obtain the external IP from the app service and access your application via a web browser.
+3. To Test deployment of application you'll run this command `kubectl get services -n yolo` use the external IP to access the client UI on port `80`
 
 # Debugging Measures
 
 - Came across a blocker pertaining my client-deployment not running therefore unable to view my UI externally on browser here are the debugging measures I took: 
 - Ensure your pods are running correctly.Run this command: `kubectl get pods -n your-namespace`
 - Get detailed information about the pods to diagnose issues.Run this command: `kubectl describe pod <pod-name> -n your-namespace`
-- Check the logs of the application containers for errors.Run this command: `kubectl logs <pod-name> -n your-namespace`.The error I came across after running the command specified that the project was running in a different port than the one mentioned in the client-deployment.yml file 
+- Check the logs of the application containers for errors.Run this command: `kubectl logs <pod-name> -n your-namespace`.Able to view my client UI via the external IP the only issue I'm coming across is related to not connecting to my database(DB timesout)
