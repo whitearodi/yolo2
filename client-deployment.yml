@@ -52,6 +52,8 @@ spec:
           ports:
             - containerPort: 3000 # Ensure this matches your app's running port
               name: yolo-client
+          tty: true 
+          stdin: true
 
           env:
             - name: REACT_APP_API_URL
