@@ -35,7 +35,7 @@ spec:
           livenessProbe:
             tcpSocket:
               port: 3000
-            initialDelaySeconds: 5
+            initialDelaySeconds: 15 #Increased initial delay to give the app more time to start 
             timeoutSeconds: 5
             successThreshold: 1
             failureThreshold: 3
@@ -58,5 +58,7 @@ spec:
               value: http://server-backend-service:80
             - name: HOST # Add HOST environment variable to allow access from outside
               value: "0.0.0.0"
+            - name: PORT 
+              value: "3000" #Added port env 
 
       restartPolicy: Always
