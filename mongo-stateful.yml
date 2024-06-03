@@ -18,7 +18,7 @@ spec:
         - name: yolo-db
           image: mongo:latest
           ports:
-            - containerPort: 27018
+            - containerPort: 27017
               #name: web
           env:
             - name: MONGO_INITDB_ROOT_USERNAME

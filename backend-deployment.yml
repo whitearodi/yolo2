@@ -24,4 +24,4 @@ spec:
             - containerPort: 5000
           env:
             - name: MONGODB_URI
-              value: mongodb://yolo-db-service:27018/
+              value: mongodb://yolo-db-service:27017/
