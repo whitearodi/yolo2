@@ -57,4 +57,4 @@ These are the manifest files your gonna create within ur project:
 - Came across a blocker pertaining my client-deployment not running therefore unable to view my UI externally on browser here are the debugging measures I took: 
 - Ensure your pods are running correctly.Run this command: `kubectl get pods -n your-namespace`
 - Get detailed information about the pods to diagnose issues.Run this command: `kubectl describe pod <pod-name> -n your-namespace`
-- Check the logs of the application containers for errors.Run this command: `kubectl logs <pod-name> -n your-namespace`.Able to view my client UI via the external IP the only issue I'm coming across is related to not connecting to my database(DB timesout)
+- Check the logs of the application containers for errors.Run this command: `kubectl logs <pod-name> -n your-namespace`.Able to view my client UI via the external IP the only issue I'm coming across is related to not connecting to my database(the DB timesout)

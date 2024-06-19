@@ -73,3 +73,9 @@ CMD: Specifies the default command to run when the container starts. This comman
  ![Docker Client Image](<Screenshot from 2024-05-01 21-29-25.png>)
 
  ![Docker Server Image](<Screenshot from 2024-05-01 21-32-35.png>)
+
+
+# 9. Screenshot of the eCommerce application
+
+![alt text](<Screenshot from 2024-06-18 23-08-15.png>)
+
